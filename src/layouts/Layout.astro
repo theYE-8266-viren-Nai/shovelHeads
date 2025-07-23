@@ -1,22 +1,29 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+// Reusable layout with Tailwind colors and shared structure
+const { title = "My Astro Site" } = Astro.props;
+import '../styles/global.css';
+---
+<!DOCTYPE html>
+<html lang="en" class="bg-background text-accent">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen flex flex-col font-sans">
+    <!-- Shared header -->
+    <header class="py-6 text-center text-3xl font-bold tracking-wide border-b border-accent/20">
+      <a href="/" class="hover:underline">My Astro Landing</a>
+    </header>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+    <!-- Dynamic page content -->
+    <main class="flex-1 px-6 py-10">
+      <slot />
+    </main>
+
+    <!-- Shared footer -->
+    <footer class="text-center py-4 text-sm opacity-70 border-t border-accent/20">
+      &copy; 2025 Your Name. All rights reserved.
+    </footer>
+  </body>
+</html>

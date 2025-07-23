@@ -1,11 +1,18 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import '../styles/global.css';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Home | My Astro Site">
+  <section class="text-center">
+    <h1 class="text-5xl font-extrabold mb-4">Welcome to Your Digital Home</h1>
+    <p class="text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
+      Built with Astro + Tailwind CSS using just two elegant colors —
+      <code class="text-sm font-mono">#18130E</code> and
+      <code class="text-sm font-mono">#E5E5DB</code>.
+    </p>
+    <a href="/about" class="inline-block border-2 border-accent text-accent px-6 py-2 rounded-lg font-semibold hover:bg-accent hover:text-background transition-colors">
+      Get Started
+    </a>
+  </section>
 </Layout>

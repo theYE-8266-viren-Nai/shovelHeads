@@ -1,5 +1,13 @@
-// @ts-check
-import { defineConfig } from 'astro/config';
-
-// https://astro.build/config
-export default defineConfig({});
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ['./src/**/*.{astro,html,js,jsx,ts,tsx,svelte,vue}'], // Scan all relevant files
+  theme: {
+    extend: {
+      colors: {
+        background: '#18130E', // Deep dark background
+        accent: '#E5E5DB',     // Soft light text/accent
+      },
+    },
+  },
+  plugins: [],
+};
