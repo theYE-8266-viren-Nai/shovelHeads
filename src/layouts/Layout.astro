@@ -1,29 +1,41 @@
 ---
-// Reusable layout with Tailwind colors and shared structure
-const { title = "My Astro Site" } = Astro.props;
-import '../styles/global.css';
----
-<!DOCTYPE html>
-<html lang="en" class="bg-background text-accent">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
-  </head>
-  <body class="min-h-screen flex flex-col font-sans">
-    <!-- Shared header -->
-    <header class="py-6 text-center text-3xl font-bold tracking-wide border-b border-accent/20">
-      <a href="/" class="hover:underline">My Astro Landing</a>
-    </header>
+  import Navbar from "../components/Navbar.astro";
+  import Header from "../components/Header.astro";
+  import "../styles/global.css";
 
-    <!-- Dynamic page content -->
-    <main class="flex-1 px-6 py-10">
-      <slot />
-    </main>
+  interface Props {
+    title: string;
+    description?: string;
+    image?: string;
+    link?: string;
+    linkText?: string;
+    entry?: any;
+  }
 
-    <!-- Shared footer -->
-    <footer class="text-center py-4 text-sm opacity-70 border-t border-accent/20">
-      &copy; 2025 Your Name. All rights reserved.
-    </footer>
-  </body>
-</html>
+  const {
+    title = "Shovelheads - Yangon's Grunge Revival",
+    description = "Explore Shovelheads, a Yangon-based grunge band inspired by the 90s, led by Layate Min Htet.",
+    image = "/images/shovel_heads_logo.png",
+    link,
+    linkText,
+    entry,
+  } = Astro.props;
+  const { Content } = entry ? await entry.render() : { Content: () => null };
+  ---
+
+  <html lang="en">
+    <head>
+      <meta charset="utf-8" />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={image} />
+      <meta property="og:url" content="https://shovelheadsrock.com" />
+    </head>
+    <body class="min-h-screen bg-gray-100 text-gray-900">
+      <Navbar title={title} />
+      <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <Header title={title} description={description} image={image} />
+        <slot />
+      </main>
+    </body>
+  </html>
