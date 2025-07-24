@@ -1,0 +1,38 @@
+---
+// src/pages/compostestpage.astro
+import { getEntry } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.jsx";
+import "../styles/global.css";
+
+const entry = await getEntry("posts", "shovelheads-band");
+if (!entry) throw new Error("Shovelheads band post not found");
+const { Content } = await entry.render();
+---
+
+<Layout
+  title={entry.data.title}
+  description={entry.data.description}
+  image={entry.data.image}
+  entry={entry}
+>
+  <Navbar client:load />
+  <main class="min-h-screen bg-black text-white p-8">
+    <h1 class="font-bitcount text-5xl font-black pixel-text">Whereas disregard and contempt for human rights have resulted</h1>
+    <p class="font-lora text-text-secondary text-lg mt-6">This is a sample paragraph.</p>
+    <div class="bg-bg-card p-6 rounded-lg mt-8">
+      <span class="font-bitcount text-raue-peach font-bold pixel-text">Highlighted text</span>
+    </div>
+    <Content />
+  </main>
+
+  <style>
+    .pixel-text {
+      text-shadow: 0 0 1px rgba(255, 255, 255, 0.7), 0 0 3px rgba(0, 0, 0, 0.4);
+      -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.2);
+      letter-spacing: 2px;
+      line-height: 1.2;
+      filter: brightness(1.1) contrast(1.2);
+    }
+  </style>
+</Layout>
