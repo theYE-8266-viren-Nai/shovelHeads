@@ -2,14 +2,12 @@
 // src/pages/compostestpage.astro
 import { getEntry } from "astro:content";
 import Layout from "../layouts/Layout.astro";
-import Navbar from "../components/Navbar.jsx"; // Import React component
+import Navbar from "../components/Navbar.jsx";
 import "../styles/global.css";
 
 const entry = await getEntry("posts", "shovelheads-band");
 if (!entry) throw new Error("Shovelheads band post not found");
 const { Content } = await entry.render();
-
-// ... (keep the existing parsing logic for sections) ...
 ---
 
 <Layout
@@ -19,22 +17,22 @@ const { Content } = await entry.render();
   entry={entry}
 >
   <Navbar client:load />
-  <!-- Render React Navbar with hydration -->
-  <h1 class="font-bitcount-800 text-raue-orange text-3xl font-extrabold">Welcome to RAUE</h1>
-  <p class="font-lora text-text-secondary">This is a sample paragraph.</p>
-  <div class="bg-bg-card p-4 rounded-lg">
-    <span class="font-bitcount text-raue-peach font-bold">Highlighted text</span>
-  </div>
-  <div class="bg-bg-dark p-6 text-accent">
-    <h2 class="font-bitcount text-raue-coral text-3xl font-bold">
-      Explore Our Brand
-    </h2>
-    <p class="font-lora text-neutral-600">
-      Styled with Lora and neutral color.
-    </p>
-    <button class="font-montserrat text-raue-orange font-bold">
-      Click Me
-    </button>
-  </div>
-  <Content />
+  <main class="min-h-screen bg-black text-white p-8">
+    <h1 class="font-bitcount text-5xl font-black pixel-text">Whereas disregard and contempt for human rights have resulted</h1>
+    <p class="font-lora text-text-secondary text-lg mt-6">This is a sample paragraph.</p>
+    <div class="bg-bg-card p-6 rounded-lg mt-8">
+      <span class="font-bitcount text-raue-peach font-bold pixel-text">Highlighted text</span>
+    </div>
+    <Content />
+  </main>
+
+  <style>
+    .pixel-text {
+      text-shadow: 0 0 1px rgba(255, 255, 255, 0.7), 0 0 3px rgba(0, 0, 0, 0.4);
+      -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.2);
+      letter-spacing: 2px;
+      line-height: 1.2;
+      filter: brightness(1.1) contrast(1.2);
+    }
+  </style>
 </Layout>
