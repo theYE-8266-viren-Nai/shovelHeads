@@ -2,6 +2,7 @@
 import { getEntry } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
+import { Button } from "../components/ui/button";
 
 const entry = await getEntry("posts", "shovelheads-band");
 if (!entry) throw new Error("Shovelheads band post not found");
@@ -197,4 +198,5 @@ lines.forEach((line) => {
       }
     </ul>
   </section>
+  <Button client:load variant="default" size="sm">Contact Us</Button>
 </Layout>
