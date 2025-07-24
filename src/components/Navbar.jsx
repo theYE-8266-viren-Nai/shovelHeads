@@ -3,7 +3,7 @@ import React from 'react';
 
   const Navbar = () => {
     return (
-      <nav className="bg-gray-800 text-white p-4 flex justify-between items-center">
+      <nav className="background text-white p-4 flex justify-between items-center">
         <div className="text-xl font-bold">Shovelheads</div>
         <div className="space-x-4">
           <Button variant="outline" size="sm" asChild>

@@ -17,11 +17,17 @@ const { Content } = await entry.render();
   entry={entry}
 >
   <Navbar client:load />
-  <main class="min-h-screen bg-black text-white p-8">
-    <h1 class="font-bitcount text-5xl font-black pixel-text">Whereas disregard and contempt for human rights have resulted</h1>
-    <p class="font-lora text-text-secondary text-lg mt-6">This is a sample paragraph.</p>
-    <div class="bg-bg-card p-6 rounded-lg mt-8">
-      <span class="font-bitcount text-raue-peach font-bold pixel-text">Highlighted text</span>
+  <main class="min-h-screen bg-background text-text-primary p-8">
+    <h1 class="font-bitcount text-5xl font-black text-raue-orange pixel-text">
+      Whereas disregard and contempt for human rights have resulted
+    </h1>
+    <p class="font-lora text-text-secondary text-lg mt-6">
+      This is a sample paragraph.
+    </p>
+    <div class="bg-bg-card p-6 rounded-lg mt-8 border border-neutral-700">
+      <span class="font-bitcount text-raue-peach font-bold pixel-text">
+        Highlighted text
+      </span>
     </div>
     <Content />
   </main>
