@@ -11,7 +11,16 @@
   const rawContent = entry.body;
   const lines = rawContent.split('\n');
   let currentSection = '';
-  const sections = {
+  type Member = { name: string; role: string; description: string };
+  type DiscographyItem = { title: string; year: string; type: string; description: string };
+  type Show = { date: string; venue: string; location: string };
+  type Connect = { platform: string; handle: string; url: string };
+  const sections: {
+    members: Member[];
+    discography: { ep: DiscographyItem[]; singles: DiscographyItem[] };
+    shows: Show[];
+    connect: Connect[];
+  } = {
     members: [],
     discography: { ep: [], singles: [] },
     shows: [],
@@ -58,7 +67,7 @@
       <h2 class="text-2xl font-bold text-gray-900 mb-4">Band Members</h2>
       <ul class="grid grid-cols-1 md:grid-cols-2 gap-6">
         {sections.members.map((member, index) => (
-          <li key={index} class="bg-white p-4 rounded-lg shadow">
+          <li class="bg-white p-4 rounded-lg shadow">
             <strong>{member.name}</strong> ({member.role}): {member.description}
           </li>
         ))}
@@ -73,7 +82,7 @@
             <h3 class="text-xl font-semibold">EP</h3>
             <ul class="list-disc pl-5">
               {sections.discography.ep.map((item, index) => (
-                <li key={index}><strong>{item.title}</strong> ({item.year}): {item.description}</li>
+                <li><strong>{item.title}</strong> ({item.year}): {item.description}</li>
               ))}
             </ul>
           </div>
@@ -83,7 +92,7 @@
             <h3 class="text-xl font-semibold">Singles</h3>
             <ul class="list-disc pl-5">
               {sections.discography.singles.map((item, index) => (
-                <li key={index}><strong>{item.title}</strong> ({item.year}): {item.description}</li>
+                <li><strong>{item.title}</strong> ({item.year}): {item.description}</li>
               ))}
             </ul>
           </div>
@@ -95,7 +104,7 @@
       <h2 class="text-2xl font-bold text-gray-900 mb-4">Upcoming Shows and Future Projects</h2>
       <ul class="list-disc pl-5 space-y-2">
         {sections.shows.map((show, index) => (
-          <li key={index}>{show.date} – {show.venue}, {show.location}</li>
+          <li>{show.date} – {show.venue}, {show.location}</li>
         ))}
       </ul>
       <p class="mt-4">More upcoming projects to be announced as the band grows with new members.</p>
@@ -106,7 +115,7 @@
       <p>Stay tuned for more from Yangon’s grunge torchbearers:</p>
       <ul class="list-disc pl-5 space-y-2">
         {sections.connect.map((contact, index) => (
-          <li key={index}><a href={contact.url} class="text-indigo-600 hover:text-indigo-800">{contact.platform}: {contact.handle}</a></li>
+          <li><a href={contact.url} class="text-indigo-600 hover:text-indigo-800">{contact.platform}: {contact.handle}</a></li>
         ))}
       </ul>
     </section>

@@ -1,6 +1,9 @@
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: ['./src/**/*.{astro,html,js,jsx,ts,tsx,svelte,vue}'], // Scan all relevant files
+import { defineConfig } from 'astro/config';
+import tailwindcss from "@tailwindcss/vite";
+
+export default defineConfig({
+  content: ['./src/**/*.{astro,html,js,jsx,ts,tsx,svelte,vue}'],
+
   theme: {
     extend: {
       colors: {
@@ -9,5 +12,10 @@ export default {
       },
     },
   },
-  plugins: [],
-};
+
+  plugins: [tailwindcss()],
+
+  vite: {
+    plugins: [tailwindcss()],
+  },
+});
