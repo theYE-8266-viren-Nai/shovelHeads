@@ -1,0 +1,40 @@
+---
+// src/pages/compostestpage.astro
+import { getEntry } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.jsx"; // Import React component
+import "../styles/global.css";
+
+const entry = await getEntry("posts", "shovelheads-band");
+if (!entry) throw new Error("Shovelheads band post not found");
+const { Content } = await entry.render();
+
+// ... (keep the existing parsing logic for sections) ...
+---
+
+<Layout
+  title={entry.data.title}
+  description={entry.data.description}
+  image={entry.data.image}
+  entry={entry}
+>
+  <Navbar client:load />
+  <!-- Render React Navbar with hydration -->
+  <h1 class="font-bitcount-800 text-raue-orange text-3xl font-extrabold">Welcome to RAUE</h1>
+  <p class="font-lora text-text-secondary">This is a sample paragraph.</p>
+  <div class="bg-bg-card p-4 rounded-lg">
+    <span class="font-bitcount text-raue-peach font-bold">Highlighted text</span>
+  </div>
+  <div class="bg-bg-dark p-6 text-accent">
+    <h2 class="font-bitcount text-raue-coral text-3xl font-bold">
+      Explore Our Brand
+    </h2>
+    <p class="font-lora text-neutral-600">
+      Styled with Lora and neutral color.
+    </p>
+    <button class="font-montserrat text-raue-orange font-bold">
+      Click Me
+    </button>
+  </div>
+  <Content />
+</Layout>

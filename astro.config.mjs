@@ -33,8 +33,12 @@ export default defineConfig({
         'neutral-500': '#5C5248',
       },
       fontFamily: {
-        'display': ['Inter', 'system-ui', 'sans-serif'],
-        'body': ['Inter', 'system-ui', 'sans-serif'],
+       bitcount: ['"Bitcount Prop Double"', 'sans-serif'],
+        lora: ['Lora', 'serif'],
+        montserrat: ['Montserrat', 'sans-serif'],
+        // Optionally keep existing fonts
+        display: ['Inter', 'system-ui', 'sans-serif'],
+        body: ['Inter', 'system-ui', 'sans-serif'],
       },
     },
   },
