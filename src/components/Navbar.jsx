@@ -9,16 +9,16 @@ const Navbar = () => {
         <img
           src="../../public/images/shovelHeadsNavbar.png" // Keeping the existing path
           alt="RAUE Logo"
-          className="object-contain w-auto h-16 " // Increased height, auto width, and object-fit
+          className="object-contain h-60 w-aut " // Increased height, auto width, and object-fit
         />
       </div>
 
       {/* End: Navigation Links */}
-      <div className="space-x-4 text-lg font-bitcount">
+      <div className="space-x-4 text-2xl font-bitcount">
         <a href="/" className="hover:text-raue-orange">Home</a>
         <a href="/merch" className="hover:text-raue-orange">Merch</a>
         <a href="/tour" className="hover:text-raue-orange">Tour</a>
-        <a href="/contact" className="hover:text-raue-orange">Contact</a>
+        {/* <a href="/contact" className="hover:text-raue-orange w-11"></a> */}
       </div>
     </nav>
   );
