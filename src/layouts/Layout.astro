@@ -1,43 +1,108 @@
 ---
-  import Navbar from "../components/Navbar";
-  import Header from "../components/Header.astro";
-  import "../styles/global.css";
+// src/layouts/Layout.astro
+import Navbar from "../components/Navbar";
+import Header from "../components/Header.astro";
+import "../styles/global.css";
 
-  interface Props {
-    title: string;
-    description?: string;
-    image?: string;
-    link?: string;
-    linkText?: string;
-    entry?: any;
-  }
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  link?: string;
+  linkText?: string;
+  entry?: any;
+}
 
-  const {
-    title = "Shovelheads - Yangon's Grunge Revival",
-    description = "Explore Shovelheads, a Yangon-based grunge band inspired by the 90s, led by Layate Min Htet.",
-    image = "/images/shovel_heads_logo.png",
-    link,
-    linkText,
-    entry,
-  } = Astro.props;
-  const { Content } = entry ? await entry.render() : { Content: () => null };
-  ---
+const {
+  title = "Shovelheads - Yangon's Grunge Revival",
+  description = "Explore Shovelheads, a Yangon-based grunge band inspired by the 90s, led by Layate Min Htet.",
+  image = "/images/shovel_heads_logo.png",
+  link,
+  linkText,
+  entry,
+} = Astro.props;
+const { Content } = entry ? await entry.render() : { Content: () => null };
+---
 
-  <html lang="en">
-    <head>
-      <meta charset="utf-8" />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content={image} />
-      <meta property="og:url" content="https://shovelheadsrock.com" />
-      <link rel="preconnect" href="https://fonts.googleapis.com">
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:url" content="https://shovelheadsrock.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bitcount+Prop+Double:wght@100..900&display=swap" rel="stylesheet">    <body class="min-h-screen bg-gray-100 text-gray-900">
-      
-      <main class="">
-        
-        <slot />
-      </main>
-    </body>
-  </html>
-  
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Prop+Double:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preload" href="/fonts/Nirvana.ttf" as="font" type="font/ttf" crossorigin>
+  </head>
+  <body class="min-h-screen bg-gray-100 text-gray-900">
+    <!-- Modal Dialog -->
+    <dialog id="entryModal" class="backdrop:bg-neutral-900/85 rounded-2xl border border-neutral-700 bg-bg-card p-8 w-full max-w-md">
+      <div class="text-center">
+        <h2 class="text-2xl font-nirvana text-text-primary mb-4">Welcome to Shovelheads!</h2>
+        <p class="text-lg font-nirvana text-text-secondary mb-6">
+          Are you sure you want to enter this web cause you'll be witnessed what amazing music is?
+        </p>
+        <div class="flex justify-center gap-4">
+          <button id="confirmBtn" class="px-4 py-2 bg-accent text-background font-bitcount text-lg rounded hover:bg-raue-coral transition-colors pixel-text">
+            Confirm
+          </button>
+          <button id="cancelBtn" class="px-4 py-2 bg-neutral-700 text-text-primary font-bitcount text-lg rounded hover:bg-raue-orange transition-colors pixel-text">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </dialog>
+
+    <main class="">
+      <slot />
+    </main>
+
+    <!-- Client-side script to handle modal -->
+    <script client:load>
+      // Defer DOM access to ensure hydration
+      setTimeout(() => {
+        const modal = document.getElementById('entryModal');
+        const confirmBtn = document.getElementById('confirmBtn');
+        const cancelBtn = document.getElementById('cancelBtn');
+
+        // Debug log to verify elements
+        console.log('Modal elements:', { modal, confirmBtn, cancelBtn });
+
+        // Ensure all elements exist before proceeding
+        if (modal && confirmBtn && cancelBtn) {
+          // Show modal only on first visit in the session
+          if (!sessionStorage.getItem('hasSeenModal')) {
+            modal.showModal();
+            sessionStorage.setItem('hasSeenModal', 'true');
+            console.log('Modal shown on first visit');
+          } else {
+            console.log('Modal skipped, already seen');
+          }
+
+          // Close modal on Confirm
+          confirmBtn.addEventListener('click', () => {
+            modal.close();
+            console.log('Modal closed by Confirm');
+          });
+
+          // Redirect on Cancel
+          cancelBtn.addEventListener('click', () => {
+            window.location.href = 'https://www.google.com';
+            console.log('Redirected by Cancel');
+          });
+
+          // Handle close event (e.g., Esc key)
+          modal.addEventListener('close', () => {
+            sessionStorage.setItem('hasSeenModal', 'true');
+            console.log('Modal closed by Esc or other means');
+          });
+        } else {
+          console.error('One or more modal elements not found:', { modal, confirmBtn, cancelBtn });
+        }
+      }, 0); // Minimal delay to ensure DOM is ready
+    </script>
+  </body>
+</html>

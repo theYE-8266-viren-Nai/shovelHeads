@@ -1,46 +1,169 @@
 ---
-// src/pages/compostestpage.astro
-import { getEntry } from "astro:content";
-import Layout from "../layouts/Layout.astro";
-import Navbar from "../components/Navbar.jsx";
-import Hero from "@/components/Hero";
-import "../styles/global.css";
+   // src/pages/compostestpage.astro
+   import { getEntry } from "astro:content";
+   import Layout from "../layouts/Layout.astro";
+   import Navbar from "../components/Navbar.jsx";
+   import Hero from "@/components/Hero";
+   import "../styles/global.css";
 
-const entry = await getEntry("posts", "shovelheads-band");
-if (!entry) throw new Error("Shovelheads band post not found");
-const { Content } = await entry.render();
----
+   const entry = await getEntry("posts", "shovelheads-band");
+   if (!entry) throw new Error("Shovelheads band post not found");
+   const { Content } = await entry.render();
+   ---
 
-<Layout
-  title={entry.data.title}
-  description={entry.data.description}
-  image={entry.data.image}
-  entry={entry}
->
-  <!-- <Navbar client:load /> -->
-  <Hero client:load />
-  <main class="min-h-screen p-8 bg-black text-text-primary">
-    <h1 class="text-5xl font-black font-bitcount text-raue-orange pixel-text">
-      Whereas disregard and contempt for human rights have resulted
-    </h1>
-    <p class="mt-6 text-lg font-lora text-text-secondary">
-      This is a sample paragraph.
-    </p>
-    <div class="p-6 mt-8 border rounded-lg bg-bg-card border-neutral-700">
-      <span class="font-bold font-bitcount text-raue-peach pixel-text">
-        Highlighted text
-      </span>
-    </div>
-    <Content />
-  </main>
+   <Layout
+     title={entry.data.title}
+     description={entry.data.description}
+     image={entry.data.image}
+     entry={entry}
+   >
+     <!-- <Navbar client:load /> -->
+     <Hero client:load />
+     
+     <main class="min-h-screen p-8 bg-background text-text-primary">
+       <h1 class="text-5xl font-black font-bitcount text-raue-orange pixel-text">
+         Whereas disregard and contempt for human rights have resulted
+       </h1>
 
-  <style>
-    .pixel-text {
-      text-shadow: 0 0 1px rgba(255, 255, 255, 0.7), 0 0 3px rgba(0, 0, 0, 0.4);
-      -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.2);
-      letter-spacing: 2px;
-      line-height: 1.2;
-      filter: brightness(1.1) contrast(1.2);
-    }
-  </style>
-</Layout>
+       <!-- Content Section -->
+       <div class="max-w-4xl mx-auto py-16">
+         <!-- Sample Paragraph Section -->
+         <section class="mb-16">
+           <div class="bg-gradient-to-r from-bg-card to-bg-dark border border-neutral-700 rounded-2xl p-8 shadow-2xl">
+             <div class="flex items-start gap-6">
+               <div class="flex-shrink-0">
+                 <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center">
+                   <svg class="w-6 h-6 text-background" fill="currentColor" viewBox="0 0 20 20">
+                     <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+                   </svg>
+                 </div>
+               </div>
+               <div class="flex-1">
+                 <h2 class="text-2xl font-bold font-bitcount text-accent pixel-text mb-4">
+                   Introduction
+                 </h2>
+                 <p class="text-lg font-nirvana text-text-secondary leading-relaxed">
+                   This is a sample paragraph that demonstrates the enhanced layout and typography. 
+                   The content flows naturally with proper spacing and visual hierarchy, creating 
+                   an engaging reading experience that complements the pixel-art aesthetic.
+                 </p>
+               </div>
+             </div>
+           </div>
+         </section>
+
+         <!-- Highlighted Content Section -->
+         <section class="mb-16">
+           <div class="relative">
+             <div class="absolute inset-0 bg-gradient-to-r from-accent/20 to-raue-coral/20 rounded-2xl blur-xl"></div>
+             <div class="relative bg-bg-card border border-neutral-600 rounded-2xl p-8 shadow-2xl">
+               <div class="text-center">
+                 <span class="inline-block font-bold font-bitcount text-accent pixel-text text-xl mb-4">
+                   ✦ Highlighted Content ✦
+                 </span>
+                 <p class="text-text-secondary font-nirvana">
+                   This section draws attention to important information with enhanced styling and visual effects.
+                 </p>
+               </div>
+             </div>
+           </div>
+         </section>
+
+         <!-- Dynamic Content Section -->
+         <section class="mb-16">
+           <div class="bg-gradient-to-br from-bg-card to-bg-dark border border-neutral-700 rounded-2xl p-8 shadow-2xl">
+             <h2 class="text-3xl font-black font-bitcount text-accent pixel-text mb-6 text-center">
+               Content from Collection
+             </h2>
+             <div class="prose prose-invert prose-lg max-w-none">
+               <div class="content-wrapper">
+                 <Content />
+               </div>
+             </div>
+           </div>
+         </section>
+
+         <!-- Additional Features Section -->
+         <section class="grid md:grid-cols-2 gap-8">
+           <div class="bg-bg-card border border-neutral-700 rounded-xl p-6 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10">
+             <h3 class="text-xl font-bold font-bitcount text-accent pixel-text mb-3">
+               Feature One
+             </h3>
+             <p class="text-text-muted font-nirvana">
+               Additional content sections can be easily added to showcase different aspects of your content.
+             </p>
+           </div>
+           <div class="bg-bg-card border border-neutral-700 rounded-xl p-6 hover:border-raue-coral/50 transition-all duration-300 hover:shadow-lg hover:shadow-raue-coral/10">
+             <h3 class="text-xl font-bold font-bitcount text-raue-coral pixel-text mb-3">
+               Feature Two
+             </h3>
+             <p class="text-text-muted font-nirvana">
+               The layout is responsive and adapts beautifully to different screen sizes and devices.
+             </p>
+           </div>
+         </section>
+       </div>
+     </main>
+
+     <style>
+       .pixel-text {
+         text-shadow: 
+           0 0 1px rgba(255, 255, 255, 0.7), 
+           0 0 3px rgba(0, 0, 0, 0.4),
+           0 0 8px rgba(255, 165, 0, 0.3);
+         -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.2);
+         letter-spacing: 2px;
+         line-height: 1.2;
+         filter: brightness(1.1) contrast(1.2);
+       }
+
+       .content-wrapper :global(h1),
+       .content-wrapper :global(h2),
+       .content-wrapper :global(h3) {
+         @apply font-bitcount text-accent pixel-text mb-4;
+       }
+
+       .content-wrapper :global(p) {
+         @apply font-nirvana text-text-secondary mb-6 leading-relaxed;
+       }
+
+       .content-wrapper :global(a) {
+         @apply text-accent hover:text-raue-coral transition-colors duration-200;
+       }
+
+       .content-wrapper :global(blockquote) {
+         @apply border-l-4 border-accent pl-6 italic text-text-secondary bg-neutral-800/50 py-4 rounded-r-lg;
+       }
+
+       .content-wrapper :global(code) {
+         @apply bg-neutral-800 text-accent px-2 py-1 rounded font-mono text-sm;
+       }
+
+       .content-wrapper :global(pre) {
+         @apply bg-neutral-900 border border-neutral-700 rounded-lg p-4 overflow-x-auto;
+       }
+
+       /* Smooth scroll behavior */
+       html {
+         scroll-behavior: smooth;
+       }
+
+       /* Custom scrollbar */
+       ::-webkit-scrollbar {
+         width: 8px;
+       }
+
+       ::-webkit-scrollbar-track {
+         background: #1C2526; /* background color */
+       }
+
+       ::-webkit-scrollbar-thumb {
+         background: #D3D7D9; /* accent color */
+         border-radius: 4px;
+       }
+
+       ::-webkit-scrollbar-thumb:hover {
+         background: #666666; /* raue-coral color */
+       }
+     </style>
+   </Layout>
