@@ -1,3 +1,4 @@
+/* Make sure this file is processed by Tailwind CSS (e.g., via PostCSS or your build toolchain) and not loaded directly by the browser. */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

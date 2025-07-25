@@ -3,6 +3,7 @@
 import { getEntry } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.jsx";
+import Hero from "@/components/Hero";
 import "../styles/global.css";
 
 const entry = await getEntry("posts", "shovelheads-band");
@@ -16,16 +17,17 @@ const { Content } = await entry.render();
   image={entry.data.image}
   entry={entry}
 >
-  <Navbar client:load />
-  <main class="min-h-screen bg-background text-text-primary p-8">
-    <h1 class="font-bitcount text-5xl font-black text-raue-orange pixel-text">
+  <!-- <Navbar client:load /> -->
+  <Hero client:load />
+  <main class="min-h-screen p-8 bg-black text-text-primary">
+    <h1 class="text-5xl font-black font-bitcount text-raue-orange pixel-text">
       Whereas disregard and contempt for human rights have resulted
     </h1>
-    <p class="font-lora text-text-secondary text-lg mt-6">
+    <p class="mt-6 text-lg font-lora text-text-secondary">
       This is a sample paragraph.
     </p>
-    <div class="bg-bg-card p-6 rounded-lg mt-8 border border-neutral-700">
-      <span class="font-bitcount text-raue-peach font-bold pixel-text">
+    <div class="p-6 mt-8 border rounded-lg bg-bg-card border-neutral-700">
+      <span class="font-bold font-bitcount text-raue-peach pixel-text">
         Highlighted text
       </span>
     </div>

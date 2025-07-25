@@ -5,28 +5,28 @@ module.exports = {
     extend: {
       colors: {
         // Background colors
-        background: '#18130E', // Deep dark background
-        'bg-dark': '#0F0B08', // Even darker for contrast
-        'bg-card': '#1F1A15', // Slightly lighter for cards/sections
+        'background': '#1C2526', // Dark gray background, inspired by the shutter door's dark tone
+        'bg-dark': '#0F1415',   // Even darker gray for contrast, mimicking deep shadows
+        'bg-card': '#2D383A',   // Slightly lighter gray for cards/sections, akin to wall texture
 
-        // RAUE brand colors (inspired by the logo)
-        'raue-orange': '#FF6B35', // Main orange from logo
-        'raue-coral': '#FF8F65', // Lighter coral shade
-        'raue-red': '#E55B3C', // Deeper red-orange
-        'raue-peach': '#FFB4A1', // Soft peach highlight
+        // RAUE brand colors (replaced with gray tones)
+        'raue-orange': '#4A4A4A', // Medium gray, replacing orange
+        'raue-coral': '#666666',  // Lighter gray, replacing coral
+        'raue-red': '#3A3A3A',    // Darker gray, replacing red
+        'raue-peach': '#8A8A8A',  // Soft gray, replacing peach
 
         // Text colors
-        accent: '#E5E5DB', // Soft light text
-        'text-primary': '#FFFFFF', // Pure white for headings
-        'text-secondary': '#B8B5B0', // Muted text
-        'text-muted': '#8B8680', // Very muted text
+        accent: '#D3D7D9',       // Light gray for soft text, inspired by wall highlights
+        'text-primary': '#FFFFFF', // Pure white for headings, matching bright areas
+        'text-secondary': '#A9AEB0', // Muted gray for secondary text, mid-tone gray
+        'text-muted': '#7D8486',  // Very muted gray for subtle text, darker mid-tone
 
         // Utility colors
-        'neutral-900': '#18130E',
-        'neutral-800': '#1F1A15',
-        'neutral-700': '#2A241E',
-        'neutral-600': '#3D352C',
-        'neutral-500': '#5C5248',
+        'neutral-900': '#1C2526',
+        'neutral-800': '#2D383A',
+        'neutral-700': '#3E4547',
+        'neutral-600': '#5F6567',
+        'neutral-500': '#7D8486',
       },
       fontFamily: {
         bitcount: ['"Bitcount Prop Double"', 'sans-serif'],
