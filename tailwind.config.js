@@ -10,7 +10,7 @@ module.exports = {
         'bg-card': '#2D383A',   // Slightly lighter gray for cards/sections, akin to wall texture
 
         // RAUE brand colors (replaced with gray tones)
-        'raue-orange': '#4A4A4A', // Medium gray, replacing orange
+        'shovel-head-main-color' : '#ffea3a',
         'raue-coral': '#666666',  // Lighter gray, replacing coral
         'raue-red': '#3A3A3A',    // Darker gray, replacing red
         'raue-peach': '#8A8A8A',  // Soft gray, replacing peach
