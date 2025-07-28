@@ -5,7 +5,8 @@
    import Navbar from "../components/Navbar.jsx";
    import Hero from "@/components/Hero";
    import "../styles/global.css";
-
+import Ourstory from "@/components/Ourstory";
+  
    const entry = await getEntry("posts", "shovelheads-band");
    if (!entry) throw new Error("Shovelheads band post not found");
    const { Content } = await entry.render();
@@ -20,18 +21,15 @@
   <!-- <Navbar client:load /> -->
   <Hero client:load />
   <main class="min-h-screen p-8 bg-black text-text-primary">
-    <h1 class="text-5xl font-black font-bitcount text-raue-orange pixel-text">
-      Whereas disregard and contempt for human rights have resulted
+   <div class="flex flex-col items-center justify-center mt-8">
+     <h1 class="font-black text-7xl font-nirvana text-shovel-head-main-color">
+     Shovel Heads ,    A Grunge/Punk Rock Band   , Originally From
+      <span class="font-nirvana text-shovel-head-main-color"> Yangon</span>
     </h1>
-    <p class="mt-6 text-lg font-lora text-text-secondary">
-      This is a sample paragraph.
-    </p>
-    <div class="p-6 mt-8 border rounded-lg bg-bg-card border-neutral-700">
-      <span class="font-bold font-bitcount text-raue-peach pixel-text">
-        Highlighted text
-      </span>
     </div>
-    <Content />
+    
+    <Ourstory client:load/>
+    
   </main>
 
   <style>
