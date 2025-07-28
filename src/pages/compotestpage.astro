@@ -1,15 +1,15 @@
 ---
-// src/pages/compostestpage.astro
-import { getEntry } from "astro:content";
-import Layout from "../layouts/Layout.astro";
-import Navbar from "../components/Navbar.jsx";
-import Hero from "@/components/Hero";
-import "../styles/global.css";
+   // src/pages/compostestpage.astro
+   import { getEntry } from "astro:content";
+   import Layout from "../layouts/Layout.astro";
+   import Navbar from "../components/Navbar.jsx";
+   import Hero from "@/components/Hero";
+   import "../styles/global.css";
 
-const entry = await getEntry("posts", "shovelheads-band");
-if (!entry) throw new Error("Shovelheads band post not found");
-const { Content } = await entry.render();
----
+   const entry = await getEntry("posts", "shovelheads-band");
+   if (!entry) throw new Error("Shovelheads band post not found");
+   const { Content } = await entry.render();
+   ---
 
 <Layout
   title={entry.data.title}
