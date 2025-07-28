@@ -7,7 +7,7 @@ const Navbar = () => {
       {/* Start: Logo Image */}
       <div className="flex items-center">
         <img
-          src="../../public/images/shovelHeadsNavbar.png" // Keeping the existing path
+          src="../../images/shovelHeadsNavbar.png" // Keeping the existing path
           alt="RAUE Logo"
           className="object-contain h-96 w-aut " // Increased height, auto width, and object-fit
         />
