@@ -25,7 +25,7 @@ const OurStory = () => {
           <span className="font-bold text-orange-400">Highlighted text</span>
         </div> */}
         <h1 className="mt-4 font-mono text-3xl font-bold">Our Story</h1>
-        <p className="mt-2 text-gray-300 font-bitcount">
+        <p className="mt-2 text-lg text-gray-300 font-bitcount">
           In the gritty, rain-soaked streets of Yangon, where the weather bites with a relentless edge,
           two teenage rebels fueled by the roaring grunge revolution of the 90s banded together. Led by
           the fierce vocals of Layate Min Htet, they forged Shovelheads—a name that screams defiance. In

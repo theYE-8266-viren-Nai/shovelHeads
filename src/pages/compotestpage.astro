@@ -1,16 +1,17 @@
 ---
-   // src/pages/compostestpage.astro
-   import { getEntry } from "astro:content";
-   import Layout from "../layouts/Layout.astro";
-   import Navbar from "../components/Navbar.jsx";
-   import Hero from "@/components/Hero";
-   import "../styles/global.css";
-import Ourstory from "@/components/Ourstory";
-  
-   const entry = await getEntry("posts", "shovelheads-band");
-   if (!entry) throw new Error("Shovelheads band post not found");
-   const { Content } = await entry.render();
-   ---
+import { getEntry } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.jsx";
+import Hero from "@/components/Hero";
+import BandMembers from "@/components/BandMembers";
+import OurStory from "@/components/Ourstory";
+import ShovelheadOriginallyFromYangon from "@/components/ShovelheadOriginallyFromYangon";
+import "../styles/global.css";
+
+const entry = await getEntry("posts", "shovelheads-band");
+if (!entry) throw new Error("Shovelheads band post not found");
+const { Content } = await entry.render();
+---
 
 <Layout
   title={entry.data.title}
@@ -18,18 +19,11 @@ import Ourstory from "@/components/Ourstory";
   image={entry.data.image}
   entry={entry}
 >
-  <!-- <Navbar client:load /> -->
   <Hero client:load />
   <main class="min-h-screen p-8 bg-black text-text-primary">
-   <div class="flex flex-col items-center justify-center mt-8">
-     <h1 class="font-black text-7xl font-nirvana text-shovel-head-main-color">
-     Shovel Heads ,    A Grunge/Punk Rock Band   , Originally From
-      <span class="font-nirvana text-shovel-head-main-color"> Yangon</span>
-    </h1>
-    </div>
-    
-    <Ourstory client:load/>
-    
+    <ShovelheadOriginallyFromYangon client:load />
+    <OurStory client:load />
+    <BandMembers client:load />
   </main>
 
   <style>
