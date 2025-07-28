@@ -9,18 +9,10 @@ module.exports = {
         "bg-dark": "#0F1415", // Even darker gray for contrast, mimicking deep shadows
         "bg-card": "#2D383A", // Slightly lighter gray for cards/sections, akin to wall texture
         // RAUE brand colors (replaced with gray tones)
-<<<<<<< HEAD
-        'shovel-head-main-color' : '#ffea3a',
-        'raue-coral': '#666666',  // Lighter gray, replacing coral
-        'raue-red': '#3A3A3A',    // Darker gray, replacing red
-        'raue-peach': '#8A8A8A',  // Soft gray, replacing peach
-
-=======
         "raue-orange": "#4A4A4A", // Medium gray, replacing orange
         "raue-coral": "#666666", // Lighter gray, replacing coral
         "raue-red": "#3A3A3A", // Darker gray, replacing red
         "raue-peach": "#8A8A8A", // Soft gray, replacing peach
->>>>>>> feat/temp/compotestpage
         // Text colors
         accent: "#D3D7D9", // Light gray for soft text, inspired by wall highlights
         "text-primary": "#FFFFFF", // Pure white for headings, matching bright areas
