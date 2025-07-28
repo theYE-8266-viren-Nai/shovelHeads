@@ -3,13 +3,13 @@ import { Button } from '../components/ui/button';
 
 const Navbar = () => {
   return (
-    <nav className="flex items-center justify-between gap-16 text-shovel-head-main-color me-44">
+    <nav className="flex items-center justify-between text-shovel-head-main-color me-24 ">
       {/* Start: Logo Image */}
-      <div className="flex items-center me-10">
+      <div className="flex items-center ">
         <img
           src="../../images/shovelHeadsNavbar.png" // Keeping the existing path
-          alt="RAUE Logo"
-          className="object-contain h-96 w-aut " // Increased height, auto width, and object-fit
+          alt="ShovelHeads Logo"
+          className="object-contain h-96 w-aut me-10 " // Increased height, auto width, and object-fit
         />
       </div>
 
