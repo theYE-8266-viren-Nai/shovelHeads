@@ -15,6 +15,7 @@ module.exports = {
         "raue-peach": "#8A8A8A", // Soft gray, replacing peach
         // Text colors
         accent: "#D3D7D9", // Light gray for soft text, inspired by wall highlights
+        'shovel-head-main-color': "#fce83a", // Main text color, matching the light gray of the wall highlight
         "text-primary": "#FFFFFF", // Pure white for headings, matching bright areas
         "text-secondary": "#A9AEB0", // Muted gray for secondary text, mid-tone gray
         "text-muted": "#7D8486", // Very muted gray for subtle text, darker mid-tone

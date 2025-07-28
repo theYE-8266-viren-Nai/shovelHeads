@@ -14,11 +14,11 @@ const Navbar = () => {
       </div>
 
       {/* End: Navigation Links */}
-      <div className="space-x-4 text-4xl font-bitcount">
-        <a href="/" className="hover:text-raue-orange">Home</a>
-        <a href="/merch" className="hover:text-raue-orange">Merch</a>
-        <a href="/tour" className="hover:text-raue-orange">Tour</a>
-        {/* <a href="/contact" className="hover:text-raue-orange w-11"></a> */}
+      <div className="justify-between space-x-4 text-6xl p text-shovel-head-main-color font-nirvana">
+        <a href="/" className="px-2 hover:text-raue-orange">Home</a>
+        <a href="/merch" className="px-2 hover:text-raue-orange">Merch</a>
+        <a href="/tour" className="px-2 hover:text-raue-orange">Tour</a>
+        {/* <a href="/contact" className="hover:text-raue-orange w-11 font-nirvana">Contact</a> */}
       </div>
     </nav>
   );
