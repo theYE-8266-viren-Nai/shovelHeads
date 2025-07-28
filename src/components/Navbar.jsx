@@ -3,9 +3,9 @@ import { Button } from '../components/ui/button';
 
 const Navbar = () => {
   return (
-    <nav className="flex items-center justify-between p-4 text-shovel-head-main-color me-44">
+    <nav className="flex items-center justify-between gap-16 text-shovel-head-main-color me-44">
       {/* Start: Logo Image */}
-      <div className="flex items-center">
+      <div className="flex items-center me-10">
         <img
           src="../../images/shovelHeadsNavbar.png" // Keeping the existing path
           alt="RAUE Logo"
@@ -14,7 +14,7 @@ const Navbar = () => {
       </div>
 
       {/* End: Navigation Links */}
-      <div className="justify-between space-x-2 text-6xl me-19 text-shovel-head-main-color font-nirvana">
+      <div className="justify-between space-x-4 text-6xl ms-40 text-shovel-head-main-color font-nirvana">
         <a href="/" className="px-2 hover:text-raue-orange">Home</a>
         <a href="/merch" className="px-2 hover:text-raue-orange">Merch</a>
         <a href="/tour" className="px-2 hover:text-raue-orange">Tour</a>
