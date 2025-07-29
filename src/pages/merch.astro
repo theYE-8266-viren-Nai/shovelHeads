@@ -1,9 +1,9 @@
 ---
-// Astro layout file
-import Layout from '@/layouts/Layout.astro';
+// src/pages/merch.astro
+import Layout from '../layouts/Layout.astro';
 import { getEntry } from "astro:content";
-import MerchHero from '../components/merch/MerchHero';
-import PinkMerch from '../components/merch/PinkMerchSection';
+import MerchHero from '../components/merch/MerchHero.jsx';
+import PinkMerchSection from '../components/merch/PinkMerchSection.jsx';
 
 const entry = await getEntry("posts", "shovelheads-band");
 if (!entry) throw new Error("Shovelheads band post not found");
@@ -11,27 +11,101 @@ if (!entry) throw new Error("Shovelheads band post not found");
 const { Content } = await entry.render();
 ---
 
-<div>
-  <Layout
-    title={entry.data.title}
-    description={entry.data.description}
-    image={entry.data.image}
-    entry={entry}
-  >
-    <main class="min-h-screen p-8 bg-black text-text-primary">
-      <MerchHero client:load />
-      <PinkMerch client:load />
-      <h1>HEllo world </h1>
-    </main>
+<Layout
+  title="Merch - ShovelHeads Band"
+  description="Official ShovelHeads band merchandise - Limited edition punk gear"
+  image={entry.data.image}
+  entry={entry}
+>
+  <MerchHero client:load />
+  
+  <main class="bg-background">
+    <PinkMerchSection client:load />
+    
+    <!-- Additional sections can go here -->
+    <section class="flex items-center justify-center min-h-screen bg-gradient-to-b from-bg-card to-background">
+      <div class="max-w-4xl px-8 text-center text-text-primary">
+        <h2 class="mb-8 text-4xl font-black lg:text-6xl text-text-secondary font-nirvana" 
+            style="text-shadow: 3px 3px 0px #000000, -1px -1px 0px #fce83a, 3px -1px 0px #000000, -1px 3px 0px #000000;">
+          MORE COMING SOON
+        </h2>
+        <p class="text-xl tracking-wider text-text-muted">
+          Stay tuned for more underground merchandise drops
+        </p>
+        
+        <!-- Decorative elements -->
+        <div class="flex justify-center mt-12 space-x-8 text-accent-yellow/30">
+          <span class="text-4xl transform rotate-12">★</span>
+          <span class="text-3xl transform -rotate-6">⚡</span>
+          <span class="text-4xl transform rotate-45">✖</span>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    <style>
-      .pixel-text {
-        text-shadow: 0 0 1px rgba(255, 255, 255, 0.7), 0 0 3px rgba(0, 0, 0, 0.4);
-        -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.2);
-        letter-spacing: 2px;
-        line-height: 1.2;
-        filter: brightness(1.1) contrast(1.2);
+  <style>
+    /* Enhanced grunge text effect */
+    .grunge-text {
+      text-shadow: 
+        0 0 1px rgba(252, 232, 58, 0.7), 
+        0 0 3px rgba(0, 0, 0, 0.8),
+        2px 2px 0px #000000,
+        -1px -1px 0px #fce83a;
+      -webkit-text-stroke: 0.5px rgba(252, 232, 58, 0.3);
+      letter-spacing: 3px;
+      line-height: 1.2;
+      filter: brightness(1.1) contrast(1.3) drop-shadow(0 0 10px rgba(252, 232, 58, 0.4));
+    }
+    
+    /* Punk distortion effect */
+    .punk-distort {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .punk-distort::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(252, 232, 58, 0.1), transparent);
+      animation: punk-sweep 3s infinite;
+    }
+    
+    @keyframes punk-sweep {
+      0% { left: -100%; }
+      50% { left: 100%; }
+      100% { left: 100%; }
+    }
+    
+    /* Glitch animation */
+    @keyframes glitch {
+      0%, 100% { 
+        transform: translate(0);
+        filter: hue-rotate(0deg);
       }
-    </style>
-  </Layout>
-</div>
+      20% { 
+        transform: translate(-2px, 2px);
+        filter: hue-rotate(90deg);
+      }
+      40% { 
+        transform: translate(-2px, -2px);
+        filter: hue-rotate(180deg);
+      }
+      60% { 
+        transform: translate(2px, 2px);
+        filter: hue-rotate(270deg);
+      }
+      80% { 
+        transform: translate(2px, -2px);
+        filter: hue-rotate(360deg);
+      }
+    }
+    
+    .glitch-effect:hover {
+      animation: glitch 0.3s infinite;
+    }
+  </style>
+</Layout>
