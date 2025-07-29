@@ -1,6 +1,6 @@
 // components/index/Hero.jsx
 import React from 'react';
-import Navbar from '../Navbar';
+import Navbar from '../Navbar.jsx';
 
 const Hero = () => {
   return (
@@ -9,7 +9,7 @@ const Hero = () => {
       style={{
         backgroundImage: "linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('/images/index/shovelHeadBackground.jpg')",
         backgroundSize: 'cover',
-        backgroundPosition: '70% 70%',
+        backgroundPosition: '70% 80%',
         height: '100vh',
         width: '100%',
       }}
@@ -17,16 +17,16 @@ const Hero = () => {
       <Navbar />
       
       {/* Hero content area */}
-      <div className="flex items-center justify-center h-full text-shovel-head-main-color">
-        <div className="text-center text-white">
-          <h1 className="mb-4 text-6xl font-black text-orange-300 lg:text-8xl" 
+      <div className="flex items-center justify-center h-full">
+        <div className="text-center text-text-primary">
+          <h1 className="mb-4 text-6xl font-black lg:text-8xl text-text-secondary font-nirvana" 
               style={{ 
-                textShadow: '4px 4px 0px #000, -2px -2px 0px #ff6b35, 4px -2px 0px #000, -2px 4px 0px #000',
-                filter: 'drop-shadow(0 0 20px rgba(255, 107, 53, 0.5))'
+                textShadow: '4px 4px 0px #000000, -2px -2px 0px #fce83a, 4px -2px 0px #000000, -2px 4px 0px #000000',
+                filter: 'drop-shadow(0 0 20px rgba(252, 232, 58, 0.5))'
               }}>
             SHOVEL HEADS
           </h1>
-          <p className="text-xl font-bold tracking-wider text-red-300 lg:text-2xl">
+          <p className="text-xl font-bold tracking-wider lg:text-2xl text-text-secondary">
             UNDERGROUND • LOUD • REBELLIOUS
           </p>
         </div>
