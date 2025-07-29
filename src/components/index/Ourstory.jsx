@@ -13,7 +13,7 @@ const OurStory = () => {
       {/* Left column: Image */}
       <motion.div className="md:w-1/2" {...animationProps}>
         <img
-          src="/images/ourstory.jpg"
+          src="/images/index/ourstory.jpg"
           alt="Our Story"
           className="object-cover w-full h-auto rounded-lg"
         />

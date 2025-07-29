@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Navbar from '../components/Navbar';
+import Navbar from '../Navbar';
 
-const Hero = () => {
+const MerchHero = () => {
   const animationProps = {
     initial: { opacity: 0, y: 30 },
     animate: { opacity: 1, y: 0 },
@@ -13,7 +13,7 @@ const Hero = () => {
     <motion.section
       className="relative min-h-screen bg-cover"
       style={{
-        backgroundImage: "url('/images/shovelHeadBackground.jpg')",
+        backgroundImage: "url('/images/merch/shovelHeadsMerchHero.jpg')",
         backgroundSize: 'cover',
         backgroundPosition: '70% 80%',
         height: '100vh',
@@ -28,4 +28,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default MerchHero;

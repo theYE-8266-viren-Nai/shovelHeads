@@ -1,29 +1,21 @@
 ---
+import Layout from '@/layouts/Layout.astro';
 import { getEntry } from "astro:content";
-import Layout from "../layouts/Layout.astro";
-import Navbar from "../components/Navbar.jsx";
-import Hero from "@/components/Hero";
-import BandMembers from "@/components/index/BandMembers.jsx";
-import OurStory from "@/components/index/Ourstory.jsx";
-import ShovelheadOriginallyFromYangon from "@/components/index/ShovelheadOriginallyFromYangon.jsx";
-import "../styles/global.css";
-
+import MerchHero from '../components/merch/MerchHero';
 const entry = await getEntry("posts", "shovelheads-band");
 if (!entry) throw new Error("Shovelheads band post not found");
 const { Content } = await entry.render();
 ---
-
+<div>
+   
 <Layout
   title={entry.data.title}
   description={entry.data.description}
   image={entry.data.image}
   entry={entry}
 >
-  <Hero client:load />
   <main class="min-h-screen p-8 bg-black text-text-primary">
-    <ShovelheadOriginallyFromYangon client:load />
-    <OurStory client:load />
-    <BandMembers client:load />
+    <MerchHero client:load />
   </main>
 
   <style>
@@ -36,3 +28,8 @@ const { Content } = await entry.render();
     }
   </style>
 </Layout>
+</div>
+
+<style>
+
+</style>

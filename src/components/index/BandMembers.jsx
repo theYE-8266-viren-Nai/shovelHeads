@@ -32,7 +32,7 @@ const BandMembers = () => {
       {/* Right column: Image */}
       <motion.div className="md:w-1/2" {...animationProps}>
         <img
-          src="/images/BandMembers.jpg"
+          src="/images/index/BandMembers.jpg"
           alt="Band Members"
           className="object-cover w-full h-auto rounded-lg"
         />
