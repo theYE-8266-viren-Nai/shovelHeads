@@ -13,7 +13,7 @@ const BandMembers = () => {
       {/* Left column: Band member details */}
       <motion.div className="flex flex-col justify-center md:w-1/2" {...animationProps}>
         <h1 className="mb-4 text-3xl font-bold">Band Members</h1>
-        <ul className="space-y-4 text-gray-300">
+        <ul className="mt-2 space-y-4 text-lg text-gray-300 font-bitcount">
           <li>
             <strong>Layate Min Htet</strong> (Vocals/Guitar): The soul-shaking frontman, Layate’s gritty lyrics ignite the band’s grunge fire with every chord.
           </li>
@@ -32,7 +32,7 @@ const BandMembers = () => {
       {/* Right column: Image */}
       <motion.div className="md:w-1/2" {...animationProps}>
         <img
-          src="/images/BandMembers.jpg"
+          src="/images/index/BandMembers.jpg"
           alt="Band Members"
           className="object-cover w-full h-auto rounded-lg"
         />

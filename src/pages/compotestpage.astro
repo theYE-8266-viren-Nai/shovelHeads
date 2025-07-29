@@ -2,10 +2,10 @@
 import { getEntry } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.jsx";
-import Hero from "@/components/Hero";
-import BandMembers from "@/components/BandMembers";
-import OurStory from "@/components/Ourstory";
-import ShovelheadOriginallyFromYangon from "@/components/ShovelheadOriginallyFromYangon";
+import Hero from "@/components/index/Hero";
+import BandMembers from "@/components/index/BandMembers.jsx";
+import OurStory from "@/components/index/Ourstory.jsx";
+import ShovelheadOriginallyFromYangon from "@/components/index/ShovelheadOriginallyFromYangon.jsx";
 import "../styles/global.css";
 
 const entry = await getEntry("posts", "shovelheads-band");
