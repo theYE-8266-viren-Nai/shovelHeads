@@ -21,7 +21,7 @@ const Navbar = () => {
   const navItems = [
     { href: '/', text: 'HOME', punk: 'H✖ME' },
     { href: '/merch', text: 'MERCH', punk: 'M€RCH' },
-    { href: '/tour', text: 'TOUR', punk: 'T⚡UR' }
+    { href: '/tour', text: 'DISCOGRAPHY', punk: 'DISCO⚡GRAPHY' }
   ];
 
   return (
@@ -29,17 +29,16 @@ const Navbar = () => {
       {/* Grunge texture overlay */}
       <div className="fixed top-0 left-0 right-0 z-40 h-24 pointer-events-none opacity-30 bg-gradient-to-b from-black via-transparent to-transparent"></div>
       
-      <nav className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 lg:px-44 py-2 transition-all duration-300 ${
+      <nav className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 lg:px-30  transition-all duration-300 ${
         isGlitching ? 'animate-pulse bg-red-900/20' : ''
       }`}>
         
         {/* Distressed background with multiple layers */}
-        <div className="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-zinc-900/90 via-stone-800/90 to-zinc-900/90"></div>
-        
+        {/* <div className="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-zinc-900/90 via-stone-800/90 to-zinc-900/90"></div> */}
         {/* Torn paper effect top */}
-        <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-transparent via-red-800/40 to-transparent"></div>
-        <div className="absolute left-0 right-0 h-1 top-1 bg-gradient-to-r from-orange-600/30 via-yellow-600/30 to-orange-600/30"></div>
+        <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-transparent via-yellow-800/40 to-transparent"></div>
+        <div className="absolute left-0 right-0 h-1 top-1 bg-gradient-to-r from-yellow-600/30 via-yellow-600/30 to-orange-600/30"></div>
         
         {/* Grunge scratches */}
         <div className="absolute inset-0 opacity-20">
@@ -57,9 +56,9 @@ const Navbar = () => {
             
             {/* Your actual logo - uncomment and use your image */}
             <img
-              src="/images/shovelHeadsNavbar.png"
+              src="/images/shovelHeadsNavbar1.png"
               alt="ShovelHeads Logo"
-              className="relative object-contain w-auto h-24 transition-all duration-300 lg:h-32 group-hover:brightness-110"
+              className="relative object-contain w-auto h-24 transition-all duration-300 lg:h-56 group-hover:brightness-110"
               onError={(e) => {
                 // Fallback if image doesn't load
                 e.target.style.display = 'none';
@@ -81,7 +80,7 @@ const Navbar = () => {
         </div>
 
         {/* Navigation Links */}
-        <div className="relative z-10 flex items-center space-x-1 lg:space-x-6">
+        <div className="relative z-10 flex items-center space-x-15">
           {navItems.map((item, index) => (
             <div key={item.href} className="relative group">
               {/* Link glow effect */}
@@ -118,7 +117,7 @@ const Navbar = () => {
           ))}
           
           {/* Sound toggle button */}
-          <div className="relative ml-4 group">
+          {/* <div className="relative ml-4 group">
             <button
               onClick={() => setSoundOn(!soundOn)}
               className="relative p-2 transition-all duration-300 text-text-secondary hover:text-accent-yellow hover:scale-110 hover:rotate-12"
@@ -127,7 +126,7 @@ const Navbar = () => {
               {soundOn ? <Volume2 size={20} /> : <VolumeX size={20} />}
               <div className="absolute w-2 h-2 transition-all duration-300 rounded-full opacity-0 -top-1 -right-1 bg-accent-yellow group-hover:opacity-100"></div>
             </button>
-          </div>
+          </div> */}
         </div>
 
         {/* Bottom distressed edge */}
