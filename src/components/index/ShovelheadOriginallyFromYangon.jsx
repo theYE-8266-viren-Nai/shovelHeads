@@ -18,7 +18,7 @@ const ShovelheadOriginallyFromYangon = () => {
       >
         Shovel Heads, A Grunge/Punk Rock Band
         <br />
-        <span className="block mt-2 text-3xl font-nirvana text-shovel-head-main-color sm:text-4xl md:text-5xl lg:text-6xl">
+        <span className="block mt-2 text-3xl font-BambooBrush text-shovel-head-main-color sm:text-4xl md:text-5xl lg:text-6xl">
           Originally From Yangon
         </span>
       </h1>

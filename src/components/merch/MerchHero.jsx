@@ -94,7 +94,7 @@ const MerchHero = () => {
           <div className="absolute opacity-50 -inset-4 bg-accent-yellow/20 blur-3xl"></div>
           
           <h1 
-            className="relative font-black tracking-wider transform text-8xl lg:text-9xl text-text-secondary font-nirvana"
+            className="relative font-black tracking-wider transform text-8xl lg:text-9xl text-text-secondary font-BambooBrush"
             style={{
               textShadow: `
                 4px 4px 0px #000000,
