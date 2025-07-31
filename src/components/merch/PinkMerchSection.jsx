@@ -142,7 +142,7 @@ const PinkMerchSection = () => {
           {/* Title with grunge styling */}
           <div className="relative">
             <motion.h2 
-              className="relative z-10 text-4xl font-black lg:text-6xl text-text-secondary font-nirvana"
+              className="relative z-10 text-4xl font-black lg:text-6xl text-text-secondary font-BambooBrush"
               style={{
                 textShadow: `
                   3px 3px 0px #000000,

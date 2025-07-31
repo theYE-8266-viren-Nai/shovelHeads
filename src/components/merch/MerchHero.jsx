@@ -62,7 +62,7 @@ const MerchHero = () => {
       style={{
         backgroundImage: "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('/images/merch/shovelHeadsMerchHero.jpg')",
         backgroundSize: 'cover',
-        backgroundPosition: '70% 80%',
+        backgroundPosition: '70% 53%',
         height: '100vh',
         width: '100%',
       }}
@@ -87,14 +87,14 @@ const MerchHero = () => {
         
         {/* Main title with punk styling */}
         <motion.div
-          className="relative mb-8"
+          className="relative mt-14"
           variants={textVariants}
         >
           {/* Background glow */}
           <div className="absolute opacity-50 -inset-4 bg-accent-yellow/20 blur-3xl"></div>
           
           <h1 
-            className="relative font-black tracking-wider transform text-8xl lg:text-9xl text-text-secondary font-nirvana"
+            className="relative font-black tracking-wider transform text-8xl lg:text-9xl text-text-secondary font-BambooBrush"
             style={{
               textShadow: `
                 4px 4px 0px #000000,
