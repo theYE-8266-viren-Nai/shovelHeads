@@ -1,4 +1,3 @@
-// components/merch/MerchHero.jsx
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '../Navbar.jsx';
@@ -7,7 +6,6 @@ const MerchHero = () => {
   const [glitchText, setGlitchText] = useState('MERCH');
   const glitchVariations = ['M€RCH', 'M3RCH', 'MΞRCH', 'M▲RCH', 'MERCH'];
 
-  // Random text glitch effect
   useEffect(() => {
     const glitchInterval = setInterval(() => {
       if (Math.random() < 0.15) {
@@ -58,7 +56,7 @@ const MerchHero = () => {
 
   return (
     <motion.section
-      className="relative min-h-screen overflow-hidden bg-cover"
+      className="relative min-h-screen overflow-hidden bg-cover font-shovelHeads"
       style={{
         backgroundImage: "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('/images/merch/shovelHeadsMerchHero.jpg')",
         backgroundSize: 'cover',
@@ -72,67 +70,60 @@ const MerchHero = () => {
     >
       <Navbar />
       
-      {/* Grunge overlay effects */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/20 to-background/60"></div>
+      {/* Dark overlay effects */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/70"></div>
       
-      {/* Scratched film effect */}
+      {/* Scratched film lines */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute w-1 top-20 left-10 h-96 bg-text-primary rotate-12 opacity-30"></div>
-        <div className="absolute top-40 right-20 w-0.5 h-64 bg-accent-yellow -rotate-6 opacity-40"></div>
-        <div className="absolute w-2 h-48 rotate-45 bottom-32 left-1/3 bg-text-primary opacity-20"></div>
+        <div className="absolute w-1 bg-gray-400 top-20 left-10 h-96 rotate-12 opacity-30"></div>
+        <div className="absolute top-40 right-20 w-0.5 h-64 bg-gray-500 -rotate-6 opacity-40"></div>
+        <div className="absolute w-2 h-48 rotate-45 bg-gray-400 bottom-32 left-1/3 opacity-20"></div>
       </div>
 
       {/* Main content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full px-8 text-center">
+      <div className="relative z-10 flex flex-col items-center justify-center h-full px-8 text-center font-nirvana">
         
-        {/* Main title with punk styling */}
+        {/* Title */}
         <motion.div
           className="relative mt-14"
           variants={textVariants}
         >
-          {/* Background glow */}
-          <div className="absolute opacity-50 -inset-4 bg-accent-yellow/20 blur-3xl"></div>
+          <div className="absolute opacity-40 -inset-4 bg-gray-500/20 blur-3xl"></div>
           
           <h1 
-            className="relative font-black tracking-wider transform text-8xl lg:text-9xl text-text-secondary font-BambooBrush"
+            className="relative font-black tracking-wider text-gray-300 transform text-8xl lg:text-9xl font-BambooBrush"
             style={{
               textShadow: `
-                4px 4px 0px #000000,
-                -2px -2px 0px #fce83a,
-                6px -2px 0px #000000,
-                -2px 6px 0px #000000,
-                0 0 30px rgba(252, 232, 58, 0.6)
+                1px 1px 2px #000,
+                -1px -1px 1px #444
               `,
-              filter: 'drop-shadow(0 0 25px rgba(252, 232, 58, 0.4))'
+              filter: 'drop-shadow(0 0 5px rgba(255,255,255,0.1))'
             }}
           >
             {glitchText}
           </h1>
-          
-          {/* Punk decorations */}
-          <div className="absolute text-2xl -top-4 -right-4 text-accent-yellow animate-pulse">★</div>
-          <div className="absolute text-xl -bottom-2 -left-6 text-accent-light rotate-12">⚡</div>
-          <div className="absolute text-lg -rotate-45 top-1/2 -right-8 text-accent-yellow">✖</div>
+
+          {/* Simple grunge symbols in gray */}
+         
         </motion.div>
 
-        {/* Subtitle with typewriter effect */}
+        {/* Subtitle */}
         <motion.div
           className="relative max-w-4xl"
           variants={subTextVariants}
         >
-          <div className="absolute -inset-2 bg-gradient-to-r from-transparent via-accent-yellow/10 to-transparent blur"></div>
-          <p className="relative text-xl font-bold tracking-widest uppercase lg:text-2xl text-text-primary">
-            <span className="inline-block px-6 py-3 border-2 border-accent-yellow/60 bg-background/80 backdrop-blur-sm">
+          <div className="absolute -inset-2 bg-gradient-to-r from-transparent via-gray-500/10 to-transparent blur"></div>
+          <p className="relative text-xl font-bold tracking-widest text-gray-400 uppercase lg:text-2xl">
+            <span className="inline-block px-6 py-3 border-2 border-gray-600 bg-black/70 backdrop-blur-sm">
               Official Band Merchandise
             </span>
           </p>
-          
-          {/* Distressed border effects */}
-          <div className="absolute top-0 w-4 h-1 left-8 bg-accent-yellow"></div>
-          <div className="absolute bottom-0 w-3 h-1 right-12 bg-accent-light"></div>
+
+          {/* Grunge marks */}
+       
         </motion.div>
 
-        {/* Animated scroll indicator */}
+        {/* Scroll indicator */}
         <motion.div
           className="absolute transform -translate-x-1/2 bottom-8 left-1/2"
           initial={{ opacity: 0, y: -20 }}
@@ -140,31 +131,31 @@ const MerchHero = () => {
           transition={{ delay: 2, duration: 1 }}
         >
           <motion.div
-            className="flex justify-center w-6 h-10 border-2 rounded-full border-accent-yellow"
+            className="flex justify-center w-6 h-10 border-2 border-gray-500 rounded-full"
             animate={{ 
               boxShadow: [
-                '0 0 0px rgba(252, 232, 58, 0.4)',
-                '0 0 20px rgba(252, 232, 58, 0.6)',
-                '0 0 0px rgba(252, 232, 58, 0.4)'
+                '0 0 0px rgba(255,255,255,0.1)',
+                '0 0 10px rgba(200,200,200,0.2)',
+                '0 0 0px rgba(255,255,255,0.1)'
               ]
             }}
             transition={{ duration: 2, repeat: Infinity }}
           >
             <motion.div
-              className="w-1 h-3 mt-2 rounded-full bg-accent-yellow"
+              className="w-1 h-3 mt-2 bg-gray-500 rounded-full"
               animate={{ y: [0, 12, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
             />
           </motion.div>
-          <p className="mt-2 text-sm font-bold tracking-wider text-text-muted">SCROLL</p>
+          <p className="mt-2 text-sm font-bold tracking-wider text-gray-400">SCROLL</p>
         </motion.div>
       </div>
 
-      {/* Corner grunge elements */}
-      <div className="absolute w-16 h-16 border-t-2 border-l-2 top-4 left-4 border-accent-yellow/40"></div>
-      <div className="absolute w-16 h-16 border-t-2 border-r-2 top-4 right-4 border-accent-yellow/40"></div>
-      <div className="absolute w-16 h-16 border-b-2 border-l-2 bottom-4 left-4 border-accent-yellow/40"></div>
-      <div className="absolute w-16 h-16 border-b-2 border-r-2 bottom-4 right-4 border-accent-yellow/40"></div>
+      {/* Border corner elements */}
+      <div className="absolute w-16 h-16 border-t-2 border-l-2 top-4 left-4 border-gray-600/40"></div>
+      <div className="absolute w-16 h-16 border-t-2 border-r-2 top-4 right-4 border-gray-600/40"></div>
+      <div className="absolute w-16 h-16 border-b-2 border-l-2 bottom-4 left-4 border-gray-600/40"></div>
+      <div className="absolute w-16 h-16 border-b-2 border-r-2 bottom-4 right-4 border-gray-600/40"></div>
     </motion.section>
   );
 };

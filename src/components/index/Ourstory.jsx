@@ -24,7 +24,7 @@ const OurStory = () => {
         {/* <div className="p-6 bg-gray-800 border rounded-lg border-neutral-700">
           <span className="font-bold text-orange-400">Highlighted text</span>
         </div> */}
-        <h1 className="mt-4 font-mono text-3xl font-bold">Our Story</h1>
+        <h1 className="mt-4 text-3xl font-shovelHeads">Our Story</h1>
         <p className="mt-2 text-lg text-gray-300 font-bitcount">
           In the gritty, rain-soaked streets of Yangon, where the weather bites with a relentless edge,
           two teenage rebels fueled by the roaring grunge revolution of the 90s banded together. Led by
