@@ -12,7 +12,7 @@ const BandMembers = () => {
     <motion.div className="flex flex-col gap-8 p-6 md:flex-row" {...animationProps}>
       {/* Left column: Band member details */}
       <motion.div className="flex flex-col justify-center md:w-1/2" {...animationProps}>
-        <h1 className="mb-4 text-3xl font-bold">Band Members</h1>
+        <h1 className="mb-4 text-3xl font-shovelHeads">Band Members</h1>
         <ul className="mt-2 space-y-4 text-lg text-gray-300 font-bitcount">
           <li>
             <strong>Layate Min Htet</strong> (Vocals/Guitar): The soul-shaking frontman, Layate’s gritty lyrics ignite the band’s grunge fire with every chord.
