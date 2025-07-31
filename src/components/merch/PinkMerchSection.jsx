@@ -60,7 +60,7 @@ const PinkMerchSection = () => {
   const words = merchText.split(" ");
 
   return (
-    <div className="relative min-h-screen px-8 py-16 overflow-hidden bg-gradient-to-br from-black via-zinc-900 to-zinc-800">
+    <div className="relative min-h-screen px-8 py-16 overflow-hidden bg-gradient-to-br from-black via-zinc-900 to-zinc-800 font-shovelHeads">
       
       {/* Background grunge effects */}
       <div className="absolute inset-0 opacity-5">
@@ -103,22 +103,7 @@ const PinkMerchSection = () => {
             <div className="absolute inset-0 transition-all duration-300 opacity-0 pointer-events-none bg-gradient-to-tr from-transparent via-gray-500/10 to-transparent group-hover:opacity-100"></div>
           </div>
 
-          {/* Floating elements */}
-          <motion.div
-            className="absolute text-2xl text-gray-400 -top-6 -right-6"
-            animate={isHovered ? { rotate: 360, scale: 1.2 } : { rotate: 0, scale: 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            ★
-          </motion.div>
-          
-          <motion.div
-            className="absolute text-xl text-gray-500 -bottom-4 -left-4"
-            animate={isHovered ? { rotate: -180, x: 5, y: -5 } : { rotate: 0, x: 0, y: 0 }}
-            transition={{ duration: 0.4 }}
-          >
-            ⚡
-          </motion.div>
+        
         </motion.div>
 
         {/* Text */}
@@ -129,7 +114,7 @@ const PinkMerchSection = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >
-          <div className="relative">
+          <div className="relative font-nirvana">
             <motion.h2 
               className="relative z-10 text-4xl font-black text-gray-300 lg:text-6xl font-BambooBrush"
               style={{
@@ -202,9 +187,7 @@ const PinkMerchSection = () => {
       </div>
 
       {/* Background punk marks */}
-      <div className="absolute text-6xl font-black transform top-10 right-10 text-gray-500/10 rotate-12">★</div>
-      <div className="absolute text-4xl transform bottom-20 left-10 text-gray-500/10 -rotate-12">⚡</div>
-      <div className="absolute text-3xl transform rotate-45 top-1/2 right-20 text-gray-500/10">✖</div>
+      
     </div>
   );
 };

@@ -56,7 +56,7 @@ const MerchHero = () => {
 
   return (
     <motion.section
-      className="relative min-h-screen overflow-hidden bg-cover"
+      className="relative min-h-screen overflow-hidden bg-cover font-shovelHeads"
       style={{
         backgroundImage: "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('/images/merch/shovelHeadsMerchHero.jpg')",
         backgroundSize: 'cover',
@@ -81,7 +81,7 @@ const MerchHero = () => {
       </div>
 
       {/* Main content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full px-8 text-center">
+      <div className="relative z-10 flex flex-col items-center justify-center h-full px-8 text-center font-nirvana">
         
         {/* Title */}
         <motion.div
