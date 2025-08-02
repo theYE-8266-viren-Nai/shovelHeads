@@ -7,7 +7,7 @@ const Navbar = () => {
   const navItems = [
     { href: '/', text: 'HOME', punk: 'H✖ME' },
     { href: '/merch', text: 'MERCH', punk: 'M€RCH' },
-    { href: '/tour', text: 'DISCOGRAPHY', punk: 'DISCO⚡GRAPHY' }
+    { href: '/discography', text: 'DISCOGRAPHY', punk: 'DISCO⚡GRAPHY' }
   ];
 
   return (

@@ -1,0 +1,36 @@
+---
+import { getEntry } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.jsx";
+import DiscographyHero from '../components/discography/DiscographyHero.jsx';
+import AlbumsSection from '../components/discography/AlbumsSection.jsx';
+import "../styles/global.css";
+
+const entry = await getEntry("posts", "shovelheads-band");
+if (!entry) throw new Error("Shovelheads band post not found");
+
+const { Content } = await entry.render();
+---
+
+<Layout
+  title={entry.data.title}
+  description={entry.data.description}
+  image={entry.data.image}
+  entry={entry}
+>
+  <DiscographyHero client:load />
+  
+  <main class="min-h-screen p-8 bg-black text-text-primary">
+    <AlbumsSection client:load />
+  </main>
+
+  <style>
+    .pixel-text {
+      text-shadow: 0 0 1px rgba(255, 255, 255, 0.7), 0 0 3px rgba(0, 0, 0, 0.4);
+      -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.2);
+      letter-spacing: 2px;
+      line-height: 1.2;
+      filter: brightness(1.1) contrast(1.2);
+    }
+  </style>
+</Layout>
