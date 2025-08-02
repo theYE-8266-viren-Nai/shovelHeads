@@ -2,14 +2,13 @@
 import { getEntry } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.jsx";
-import Hero from "../components/index/Hero";
-import BandMembers from "@/components/index/BandMembers.jsx";
-import OurStory from "@/components/index/Ourstory.jsx";
-import ShovelheadOriginallyFromYangon from "@/components/index/ShovelheadOriginallyFromYangon.jsx";
+import DiscographyHero from '../components/discography/DiscographyHero.jsx';
+import AlbumsSection from '../components/discography/AlbumsSection.jsx';
 import "../styles/global.css";
 
 const entry = await getEntry("posts", "shovelheads-band");
 if (!entry) throw new Error("Shovelheads band post not found");
+
 const { Content } = await entry.render();
 ---
 
@@ -19,11 +18,10 @@ const { Content } = await entry.render();
   image={entry.data.image}
   entry={entry}
 >
-  <Hero client:load />
+  <DiscographyHero client:load />
+  
   <main class="min-h-screen p-8 bg-black text-text-primary">
-    <ShovelheadOriginallyFromYangon client:load />
-    <OurStory client:load />
-    <BandMembers client:load />
+    <AlbumsSection client:load />
   </main>
 
   <style>
