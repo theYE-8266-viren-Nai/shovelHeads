@@ -24,8 +24,8 @@ module.exports = {
 
       fontFamily: {
         bitcount: ['"Bitcount Prop Double"', "sans-serif"],
-        nirvana: ["Nirvana", "serif"],
-        shovelHeads: ['"BambooBrush"', "regular"],
+        nirvana: ["BambooBrush", "serif"],
+        shovelHeads: ['BambooBrush', "regular"],
       },
     },
   },

@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '../Navbar.jsx';
 
-const Hero = () => {
-  const [glitchText, setGlitchText] = useState('SHOVEL HEADS');
-  const glitchVariations = ['SH0VEL HEADS', 'SHOVEL H3ADS', 'SHΩVEL HEADS', 'SHOVEL HE▲DS', 'SHOVEL HEADS'];
+const DiscographyHero = () => {
+  const [glitchText, setGlitchText] = useState('DISCOGRAPHY');
+  const glitchVariations = ['D1SC0GRAPHY', 'DISCΩGRAPHY', 'DISC▼GRAPHY', 'DISCΘGRAPHY', 'DISCOGRAPHY'];
 
   useEffect(() => {
     const glitchInterval = setInterval(() => {
       if (Math.random() < 0.15) {
         const randomText = glitchVariations[Math.floor(Math.random() * glitchVariations.length)];
         setGlitchText(randomText);
-        setTimeout(() => setGlitchText('SHOVEL HEADS'), 150);
+        setTimeout(() => setGlitchText('DISCOGRAPHY'), 150);
       }
     }, 2000);
 
@@ -54,26 +54,13 @@ const Hero = () => {
     }
   };
 
-  const buttonVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { 
-        duration: 0.8, 
-        ease: 'easeOut',
-        delay: 1.5
-      }
-    }
-  };
-
   return (
     <motion.section
       className="relative min-h-screen overflow-hidden bg-cover font-shovelHeads"
       style={{
-        backgroundImage: "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('/images/index/shovelHeadBackground.jpg')",
+        backgroundImage: "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('/images/Discography/Discography.jpg')",
         backgroundSize: 'cover',
-        backgroundPosition: '70% 80%',
+        backgroundPosition: '70% 53%',
         height: '100vh',
         width: '100%',
       }}
@@ -104,7 +91,7 @@ const Hero = () => {
           <div className="absolute opacity-40 -inset-4 bg-gray-500/20 blur-3xl"></div>
           
           <h1 
-            className="relative font-black tracking-wider text-gray-300 transform text-6xl lg:text-8xl font-BambooBrush"
+            className="relative font-black tracking-wider text-gray-300 transform text-7xl lg:text-8xl font-BambooBrush"
             style={{
               textShadow: `
                 1px 1px 2px #000,
@@ -119,31 +106,15 @@ const Hero = () => {
 
         {/* Subtitle */}
         <motion.div
-          className="relative max-w-4xl mt-8"
+          className="relative max-w-4xl"
           variants={subTextVariants}
         >
           <div className="absolute -inset-2 bg-gradient-to-r from-transparent via-gray-500/10 to-transparent blur"></div>
-        </motion.div>
-
-        {/* Buttons */}
-        <motion.div
-          className="flex justify-center gap-6 mt-16"
-          variants={buttonVariants}
-        >
-          <motion.button 
-            className="px-8 py-4 font-bold tracking-wider text-gray-300 uppercase bg-transparent border-2 border-gray-600 backdrop-blur-sm hover:bg-gray-800/50 hover:border-gray-500 transition-all duration-300"
-            whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(255,255,255,0.1)' }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Listen Now
-          </motion.button>
-          <motion.button 
-            className="px-8 py-4 font-bold tracking-wider text-gray-200 uppercase bg-gray-700/80 backdrop-blur-sm border-2 border-gray-600 hover:bg-gray-600/80 hover:border-gray-500 transition-all duration-300"
-            whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(255,255,255,0.1)' }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Discover
-          </motion.button>
+          <p className="relative text-xl font-bold tracking-widest text-gray-400 uppercase lg:text-2xl">
+            <span className="inline-block px-6 py-3 border-2 border-gray-600 bg-black/70 backdrop-blur-sm">
+              Complete Musical Collection
+            </span>
+          </p>
         </motion.div>
 
         {/* Scroll indicator */}
@@ -183,4 +154,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default DiscographyHero;
