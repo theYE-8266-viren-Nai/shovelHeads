@@ -1,0 +1,270 @@
+---
+// src/pages/index.astro
+export interface Props {
+  title?: string;
+}
+import "../styles/global.css";
+const { title = "RAUE - Music & Merch" } = Astro.props;
+
+const products = [
+  {
+    id: 1,
+    name: "Limited Edition Vinyl",
+    description: "Too Scared to Explain - Special mint green pressing",
+    price: "$45.00",
+    image: "../../public/images/FB_IMG_1747199853212.jpg",
+    inStock: true
+  },
+  {
+    id: 2,
+    name: "RAUE T-Shirt",
+    description: "Organic cotton with logo print",
+    price: "$28.00",
+    image:  "../../public/images/IMG_20250518_214239_207.jpg",
+    inStock: false
+  },
+  {
+    id: 3,
+    name: "Digital EP",
+    description: "High-quality 24-bit download",
+    price: "$12.00",
+    image:  "../../public/images/Picsart_25-05-21_11-44-35-518.jpg",
+    inStock: true
+  }
+];
+---
+
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="RAUE official music and merchandise store" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>{title}</title>
+  <style>
+    body {
+      font-family: Inter, system-ui, sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-background text-accent min-h-screen">
+  <!-- Navigation Header -->
+  <header class="border-b border-neutral-700 sticky top-0 bg-background/95 backdrop-blur-sm z-50">
+    <nav class="max-w-7xl mx-auto px-6 py-4">
+      <div class="flex justify-between items-center">
+        <!-- Left Navigation -->
+        <div class="flex space-x-8">
+          <a href="/" class="text-text-secondary hover:text-raue-orange transition-colors duration-200">
+            Home
+          </a>
+          <a href="/merch" class="text-text-secondary hover:text-raue-orange transition-colors duration-200">
+            Merch
+          </a>
+          <a href="/tour" class="text-text-secondary hover:text-raue-orange transition-colors duration-200">
+            Tour
+          </a>
+          <a href="/contact" class="text-text-secondary hover:text-raue-orange transition-colors duration-200">
+            Contact
+          </a>
+        </div>
+
+        <!-- Logo -->
+        <div class="flex-1 flex justify-center">
+          <div class="relative">
+            <!-- Logo burst effect -->
+            <div class="absolute inset-0 bg-gradient-to-r from-raue-orange via-raue-coral to-raue-peach rounded-full blur-md opacity-20 animate-pulse"></div>
+            <div class="relative bg-gradient-to-r from-raue-orange via-raue-coral to-raue-peach bg-clip-text text-transparent font-bold text-3xl tracking-wider">
+              RAUE
+            </div>
+          </div>
+        </div>
+
+        <!-- Right side -->
+        <div class="flex items-center space-x-4">
+          <div class="text-text-muted text-sm">
+            SGD $ | Singapore
+          </div>
+          <button class="p-2 hover:bg-bg-card rounded-lg transition-colors">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 5H19"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative py-20 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-raue-orange/5 via-transparent to-raue-coral/5"></div>
+    <div class="relative max-w-7xl mx-auto px-6 text-center">
+      <h1 class="text-6xl md:text-8xl font-bold text-text-primary mb-6 tracking-tight">
+        Products
+      </h1>
+      <p class="text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed">
+        Discover our collection of limited edition music, merchandise, and exclusive releases
+      </p>
+    </div>
+  </section>
+
+  <!-- Filter & Sort Section -->
+  <section class="max-w-7xl mx-auto px-6 py-8">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+      <!-- Filters -->
+      <div class="flex flex-wrap items-center gap-4">
+        <span class="text-text-secondary font-medium">Filter:</span>
+        <select class="bg-bg-card border border-neutral-600 text-accent px-4 py-2 rounded-lg focus:outline-none focus:border-raue-orange transition-colors">
+          <option>All Products</option>
+          <option>In Stock</option>
+          <option>Out of Stock</option>
+        </select>
+        <select class="bg-bg-card border border-neutral-600 text-accent px-4 py-2 rounded-lg focus:outline-none focus:border-raue-orange transition-colors">
+          <option>All Types</option>
+          <option>Vinyl</option>
+          <option>Apparel</option>
+          <option>Digital</option>
+        </select>
+      </div>
+
+      <!-- Sort -->
+      <div class="flex items-center gap-4">
+        <span class="text-text-secondary">Sort by:</span>
+        <select class="bg-bg-card border border-neutral-600 text-accent px-4 py-2 rounded-lg focus:outline-none focus:border-raue-orange transition-colors">
+          <option>Alphabetically, A-Z</option>
+          <option>Price, Low to High</option>
+          <option>Price, High to Low</option>
+        </select>
+        <span class="text-text-muted text-sm">{products.length} products</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Grid -->
+  <section class="max-w-7xl mx-auto px-6 pb-20">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {products.map((product) => (
+        <div class="group bg-bg-card border border-neutral-700 rounded-xl overflow-hidden hover:border-raue-orange/50 hover:shadow-2xl hover:shadow-raue-orange/10 transition-all duration-300">
+          <!-- Product Image -->
+          <div class="aspect-square bg-neutral-800 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-raue-orange/20 via-raue-coral/10 to-raue-peach/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-32 h-32 bg-gradient-to-br from-raue-orange to-raue-coral rounded-full opacity-30 group-hover:opacity-50 group-hover:scale-110 transition-all duration-300"></div>
+            </div>
+            {!product.inStock && (
+              <div class="absolute top-4 left-4 bg-neutral-600 text-text-muted px-3 py-1 rounded-full text-sm font-medium">
+                Out of Stock
+              </div>
+            )}
+          </div>
+
+          <!-- Product Info -->
+          <div class="p-6">
+            <h3 class="text-text-primary font-bold text-xl mb-2 group-hover:text-raue-orange transition-colors">
+              {product.name}
+            </h3>
+            <p class="text-text-secondary text-sm mb-4 leading-relaxed">
+              {product.description}
+            </p>
+            
+            <div class="flex justify-between items-center">
+              <span class="text-raue-orange font-bold text-lg">
+                {product.price}
+              </span>
+              <button 
+                class={`px-6 py-2 rounded-lg font-semibold transition-all duration-200 ${
+                  product.inStock 
+                    ? 'bg-raue-orange hover:bg-raue-red text-white hover:scale-105 hover:shadow-lg' 
+                    : 'bg-neutral-600 text-neutral-400 cursor-not-allowed'
+                }`}
+                disabled={!product.inStock}
+              >
+                {product.inStock ? 'Add to Cart' : 'Sold Out'}
+              </button>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="max-w-7xl mx-auto px-6 pb-20">
+    <div class="relative">
+      <div class="absolute inset-0 bg-gradient-to-r from-raue-orange/10 via-raue-coral/5 to-raue-peach/10 rounded-2xl"></div>
+      <div class="relative bg-bg-card/50 border border-raue-orange/20 rounded-2xl p-12 text-center backdrop-blur-sm">
+        <h2 class="text-3xl font-bold text-text-primary mb-4">
+          Join the <span class="bg-gradient-to-r from-raue-orange to-raue-coral bg-clip-text text-transparent">RAUE</span> Community
+        </h2>
+        <p class="text-text-secondary mb-8 max-w-2xl mx-auto leading-relaxed">
+          Stay updated with our latest releases, exclusive merchandise drops, and behind-the-scenes content. Be the first to know about limited editions.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+          <input 
+            type="email" 
+            placeholder="Enter your email" 
+            class="flex-1 bg-background border border-neutral-600 text-accent px-4 py-3 rounded-lg focus:outline-none focus:border-raue-orange transition-colors"
+          />
+          <button class="bg-gradient-to-r from-raue-orange to-raue-coral hover:from-raue-red hover:to-raue-orange text-white font-semibold px-8 py-3 rounded-lg transition-all duration-200 hover:scale-105 hover:shadow-lg">
+            Subscribe
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-neutral-700 bg-bg-dark">
+    <div class="max-w-7xl mx-auto px-6 py-12">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div class="col-span-1">
+          <div class="bg-gradient-to-r from-raue-orange to-raue-coral bg-clip-text text-transparent font-bold text-2xl mb-4">
+            RAUE
+          </div>
+          <p class="text-text-muted text-sm leading-relaxed">
+            Independent music collective pushing boundaries through experimental sounds and authentic expression.
+          </p>
+        </div>
+        
+        <div>
+          <h4 class="text-text-primary font-semibold mb-4">Shop</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="text-text-secondary hover:text-raue-orange transition-colors">All Products</a></li>
+            <li><a href="#" class="text-text-secondary hover:text-raue-orange transition-colors">Vinyl Records</a></li>
+            <li><a href="#" class="text-text-secondary hover:text-raue-orange transition-colors">Apparel</a></li>
+            <li><a href="#" class="text-text-secondary hover:text-raue-orange transition-colors">Digital Music</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-text-primary font-semibold mb-4">Connect</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="text-text-secondary hover:text-raue-orange transition-colors">Instagram</a></li>
+            <li><a href="#" class="text-text-secondary hover:text-raue-orange transition-colors">Spotify</a></li>
+            <li><a href="#" class="text-text-secondary hover:text-raue-orange transition-colors">Bandcamp</a></li>
+            <li><a href="#" class="text-text-secondary hover:text-raue-orange transition-colors">YouTube</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-text-primary font-semibold mb-4">Support</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="text-text-secondary hover:text-raue-orange transition-colors">Contact Us</a></li>
+            <li><a href="#" class="text-text-secondary hover:text-raue-orange transition-colors">Shipping Info</a></li>
+            <li><a href="#" class="text-text-secondary hover:text-raue-orange transition-colors">Returns</a></li>
+            <li><a href="#" class="text-text-secondary hover:text-raue-orange transition-colors">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-neutral-700 mt-12 pt-8 text-center">
+        <p class="text-text-muted text-sm">
+          © 2024 RAUE. All rights reserved. | Made with ❤️ in Singapore
+        </p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,13 +1,16 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ['./src/**/*.{astro,html,js,jsx,ts,tsx,svelte,vue}'], // Scan all relevant files
-  theme: {
-    extend: {
-      colors: {
-        background: '#18130E', // Deep dark background
-        accent: '#E5E5DB',     // Soft light text/accent
+import { defineConfig } from 'astro/config';
+import tailwind from '@astrojs/tailwind'; // Use Astro's Tailwind integration
+import react from '@astrojs/react';
+
+export default defineConfig({
+  integrations: [
+    react(),
+    tailwind({
+      // Apply Tailwind to all relevant files
+      config: {
+        applyBaseStyles: false, // Optional: Set to false if you want full control over Tailwind styles
+        configFile: './tailwind.config.js', // Optional: Point to a separate Tailwind config file
       },
-    },
-  },
-  plugins: [],
-};
+    }),
+  ],
+});
