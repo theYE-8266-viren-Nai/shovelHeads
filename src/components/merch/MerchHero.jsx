@@ -58,7 +58,7 @@ const MerchHero = () => {
     <motion.section
       className="relative min-h-screen overflow-hidden bg-cover font-shovelHeads"
       style={{
-        backgroundImage: "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('/images/merch/shovelHeadsMerchHero.jpg')",
+        backgroundImage: "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('shovelHeadsMerchHero.jpg')",
         backgroundSize: 'cover',
         backgroundPosition: '70% 53%',
         height: '100vh',

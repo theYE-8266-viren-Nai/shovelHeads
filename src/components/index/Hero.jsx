@@ -71,7 +71,7 @@ const Hero = () => {
     <motion.section
       className="relative min-h-screen overflow-hidden bg-cover font-shovelHeads"
       style={{
-        backgroundImage: "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('/images/index/shovelHeadBackground.jpg')",
+        backgroundImage: "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('/shovelHeadBackground.jpg')",
         backgroundSize: 'cover',
         backgroundPosition: '70% 80%',
         height: '100vh',

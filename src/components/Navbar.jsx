@@ -24,7 +24,7 @@ const Navbar = () => {
           <div className="relative">
             {/* Your actual logo */}
             <img
-              src="/images/shovelHeadsNavbar1.png"
+              src="/shovelHeadsNavbar1.png"
               alt="ShovelHeads Logo"
               className="relative object-contain w-auto h-24 lg:h-56"
               onError={(e) => {

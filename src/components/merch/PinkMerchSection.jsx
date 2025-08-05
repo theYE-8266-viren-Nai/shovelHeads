@@ -93,7 +93,7 @@ const PinkMerchSection = () => {
             <div className="absolute w-1 h-12 bottom-1/3 -right-1 bg-gray-500/60"></div>
 
             <motion.img
-              src="/images/merch/ShovelHeadsMechPink.jpg"
+              src="/ShovelHeadsMechPink.jpg"
               alt="Limited Edition Merch"
               className="w-full max-w-lg transition-all duration-500 shadow-2xl filter group-hover:brightness-110"
               whileHover={{ scale: 1.02, rotateY: 5, rotateX: 2 }}

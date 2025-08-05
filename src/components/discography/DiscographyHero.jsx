@@ -58,7 +58,7 @@ const DiscographyHero = () => {
     <motion.section
       className="relative min-h-screen overflow-hidden bg-cover font-shovelHeads"
       style={{
-        backgroundImage: "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('/images/Discography/Discography.jpg')",
+        backgroundImage: "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('/Discography.jpg')",
         backgroundSize: 'cover',
         backgroundPosition: '70% 53%',
         height: '100vh',
